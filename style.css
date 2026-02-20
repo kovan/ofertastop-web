@@ -64,26 +64,27 @@ a:hover { text-decoration: underline; }
 /* Product image */
 .deal-img {
   flex-shrink: 0;
-  width: 160px;
+  width: 150px;
   background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: .8rem;
+  border-right: 1px solid #f0f0f0;
 }
 .deal-img img {
   max-width: 100%;
-  max-height: 140px;
+  max-height: 130px;
   object-fit: contain;
 }
 
-/* Deal body (right side) */
+/* Deal body — vertical stack */
 .deal-body {
   flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
   padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
   min-width: 0;
 }
 
@@ -91,32 +92,30 @@ a:hover { text-decoration: underline; }
   background: #e74c3c;
   color: #fff;
   font-weight: 700;
-  font-size: 1.1rem;
-  border-radius: 8px;
-  min-width: 64px;
-  text-align: center;
-  padding: .5rem .3rem;
-  flex-shrink: 0;
+  font-size: .85rem;
+  border-radius: 4px;
+  padding: .15rem .6rem;
+  align-self: flex-start;
 }
 
-.deal-info { flex: 1; min-width: 0; }
 .deal-title {
   font-weight: 600;
   font-size: 1rem;
-  margin-bottom: .4rem;
 }
+
 .deal-prices { font-size: .95rem; }
-.deal-price { font-weight: 700; color: #27ae60; font-size: 1.15rem; }
-.deal-before { text-decoration: line-through; color: #999; margin-left: .5rem; }
+.deal-price { font-weight: 700; color: #27ae60; font-size: 1.2rem; }
+.deal-before { text-decoration: line-through; color: #999; margin-left: .5rem; font-size: .95rem; }
 
 .deal-btn {
   background: #f39c12;
   color: #fff;
   font-weight: 700;
-  padding: .6rem 1.2rem;
+  padding: .5rem 1.2rem;
   border-radius: 8px;
-  white-space: nowrap;
-  flex-shrink: 0;
+  text-align: center;
+  align-self: flex-start;
+  display: inline-block;
 }
 .deal-btn:hover { background: #e67e22; text-decoration: none; }
 
@@ -129,12 +128,16 @@ a:hover { text-decoration: underline; }
 }
 
 /* Mobile */
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .deal { flex-direction: column; }
-  .deal-img { width: 100%; height: 180px; padding: 1rem; }
-  .deal-img img { max-height: 160px; }
-  .deal-body { flex-wrap: wrap; padding: 1rem; }
-  .deal-title { white-space: normal; }
-  .deal-btn { width: 100%; text-align: center; }
+  .deal-img {
+    width: 100%;
+    height: 180px;
+    padding: 1.2rem;
+    border-right: none;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .deal-img img { max-height: 150px; }
+  .deal-btn { align-self: stretch; }
   .telegram-cta { font-size: .85rem; }
 }
