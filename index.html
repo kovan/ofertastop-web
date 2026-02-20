@@ -24,100 +24,109 @@
       background: #0088cc;
       color: #fff;
       text-align: center;
-      padding: .75rem 1rem;
+      padding: .7rem 1rem;
       position: sticky;
       top: 0;
       z-index: 100;
-      font-size: .95rem;
+      font-size: .9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .7rem;
     }
     .telegram-bar a {
       color: #fff;
       font-weight: 700;
-      background: rgba(255,255,255,.18);
-      padding: .35rem 1rem;
+      background: rgba(255,255,255,.2);
+      padding: .3rem 1rem;
       border-radius: 6px;
-      margin-left: .6rem;
       text-decoration: none;
     }
-    .telegram-bar a:hover { background: rgba(255,255,255,.3); }
+    .telegram-bar a:hover { background: rgba(255,255,255,.35); }
 
     /* ── Header ── */
     .header {
-      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
       color: #fff;
-      padding: 2.5rem 1rem 2rem;
+      padding: 2.5rem 1rem;
       text-align: center;
     }
-    .header h1 { font-size: 2rem; margin-bottom: .25rem; }
-    .header p { opacity: .85; font-size: 1rem; }
+    .header h1 { font-size: 2rem; margin-bottom: .3rem; letter-spacing: -.02em; }
+    .header p { opacity: .85; font-size: .95rem; }
 
     /* ── Container ── */
-    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem 1rem; }
+    .container { max-width: 880px; margin: 0 auto; padding: 1.5rem 1rem; }
 
     /* ── Deal card ── */
     .deal {
       background: #fff;
       border-radius: 12px;
-      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
       margin-bottom: 1rem;
-      display: grid;
-      grid-template-columns: 140px 1fr;
       overflow: hidden;
-      transition: box-shadow .2s;
+      display: flex;
+      transition: box-shadow .15s;
     }
-    .deal:hover { box-shadow: 0 4px 16px rgba(0,0,0,.12); }
+    .deal:hover { box-shadow: 0 4px 14px rgba(0,0,0,.12); }
 
+    /* Image column */
     .deal-img {
+      width: 150px;
+      min-height: 130px;
+      flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1rem;
       background: #fafafa;
+      padding: .75rem;
     }
     .deal-img img {
-      width: 110px;
-      height: 110px;
+      max-width: 120px;
+      max-height: 110px;
       object-fit: contain;
+      display: block;
     }
 
+    /* Content column */
     .deal-content {
-      padding: 1rem 1.2rem;
+      flex: 1;
+      padding: 1rem 1.25rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: .4rem;
+      gap: .5rem;
+      min-width: 0;
     }
 
-    .deal-top {
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-    }
-    .deal-badge {
-      background: #e74c3c;
-      color: #fff;
-      font-weight: 700;
-      font-size: .8rem;
-      padding: .2rem .55rem;
-      border-radius: 4px;
-      white-space: nowrap;
-    }
     .deal-title {
       font-weight: 600;
       font-size: .95rem;
-      color: #222;
+      color: #111;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
-    .deal-bottom {
+    .deal-row {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      margin-top: .3rem;
+      gap: .75rem;
+      flex-wrap: wrap;
+    }
+
+    .deal-badge {
+      background: #e74c3c;
+      color: #fff;
+      font-weight: 800;
+      font-size: .85rem;
+      padding: .2rem .6rem;
+      border-radius: 4px;
     }
     .deal-price {
-      font-weight: 700;
-      font-size: 1.3rem;
-      color: #27ae60;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: #222;
     }
     .deal-before {
       text-decoration: line-through;
@@ -126,37 +135,37 @@
     }
     .deal-btn {
       margin-left: auto;
-      background: #f39c12;
+      background: #ff9900;
       color: #fff;
       font-weight: 700;
       font-size: .9rem;
-      padding: .5rem 1.2rem;
+      padding: .55rem 1.5rem;
       border-radius: 8px;
       text-decoration: none;
       white-space: nowrap;
+      transition: background .15s;
     }
-    .deal-btn:hover { background: #e67e22; }
+    .deal-btn:hover { background: #e68a00; }
 
     /* ── Footer ── */
     .footer {
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 2.5rem 1rem;
       color: #aaa;
       font-size: .8rem;
+      line-height: 1.8;
     }
 
     /* ── Mobile ── */
     @media (max-width: 600px) {
-      .deal {
-        grid-template-columns: 1fr;
-      }
+      .deal { flex-direction: column; }
       .deal-img {
-        height: 160px;
+        width: 100%;
+        min-height: 150px;
         border-bottom: 1px solid #eee;
       }
-      .deal-img img { width: 130px; height: 130px; }
-      .deal-bottom { flex-wrap: wrap; }
       .deal-btn { margin-left: 0; width: 100%; text-align: center; }
+      .header h1 { font-size: 1.5rem; }
     }
   </style>
 </head>
@@ -175,14 +184,12 @@
   <main class="container">
         <article class="deal">
       <a class="deal-img" href="https://www.amazon.es/dp/B08NG3F6XD?tag=ofertastope08-21" target="_blank" rel="noopener">
-        <img src="https://m.media-amazon.com/images/P/B08NG3F6XD.01._SCLZZZZZZZ_SX200_.jpg" alt="DEATHLOOP - PlayStation 5" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Crect width='110' height='110' fill='%23f0f0f0'/%3E%3Ctext x='55' y='60' text-anchor='middle' fill='%23ccc' font-size='13'%3EImagen%3C/text%3E%3C/svg%3E'">
+        <img src="https://m.media-amazon.com/images/P/B08NG3F6XD.01._SCLZZZZZZZ_SX200_.jpg" alt="DEATHLOOP - PlayStation 5" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='110'%3E%3Crect width='120' height='110' rx='8' fill='%23f0f0f0'/%3E%3Ctext x='60' y='58' text-anchor='middle' fill='%23bbb' font-family='sans-serif' font-size='12'%3ESin imagen%3C/text%3E%3C/svg%3E'">
       </a>
       <div class="deal-content">
-        <div class="deal-top">
+        <div class="deal-title">DEATHLOOP - PlayStation 5</div>
+        <div class="deal-row">
           <span class="deal-badge">-54%</span>
-          <span class="deal-title">DEATHLOOP - PlayStation 5</span>
-        </div>
-        <div class="deal-bottom">
           <span class="deal-price">34,90€</span>
           <span class="deal-before">75€</span>
           <a class="deal-btn" href="https://www.amazon.es/dp/B08NG3F6XD?tag=ofertastope08-21" target="_blank" rel="noopener">Ver oferta</a>
@@ -191,14 +198,12 @@
     </article>
     <article class="deal">
       <a class="deal-img" href="https://www.amazon.es/dp/B0052XR9YA?tag=ofertastope08-21" target="_blank" rel="noopener">
-        <img src="https://m.media-amazon.com/images/P/B0052XR9YA.01._SCLZZZZZZZ_SX200_.jpg" alt="Trend CraftPro Hoja de Sierra TCT 250mm" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Crect width='110' height='110' fill='%23f0f0f0'/%3E%3Ctext x='55' y='60' text-anchor='middle' fill='%23ccc' font-size='13'%3EImagen%3C/text%3E%3C/svg%3E'">
+        <img src="https://m.media-amazon.com/images/P/B0052XR9YA.01._SCLZZZZZZZ_SX200_.jpg" alt="Trend CraftPro Hoja de Sierra TCT 250mm" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='110'%3E%3Crect width='120' height='110' rx='8' fill='%23f0f0f0'/%3E%3Ctext x='60' y='58' text-anchor='middle' fill='%23bbb' font-family='sans-serif' font-size='12'%3ESin imagen%3C/text%3E%3C/svg%3E'">
       </a>
       <div class="deal-content">
-        <div class="deal-top">
+        <div class="deal-title">Trend CraftPro Hoja de Sierra TCT 250mm</div>
+        <div class="deal-row">
           <span class="deal-badge">-44%</span>
-          <span class="deal-title">Trend CraftPro Hoja de Sierra TCT 250mm</span>
-        </div>
-        <div class="deal-bottom">
           <span class="deal-price">24,63€</span>
           <span class="deal-before">44€</span>
           <a class="deal-btn" href="https://www.amazon.es/dp/B0052XR9YA?tag=ofertastope08-21" target="_blank" rel="noopener">Ver oferta</a>
@@ -207,14 +212,12 @@
     </article>
     <article class="deal">
       <a class="deal-img" href="https://www.amazon.es/dp/B0D53ND8K8?tag=ofertastope08-21" target="_blank" rel="noopener">
-        <img src="https://m.media-amazon.com/images/P/B0D53ND8K8.01._SCLZZZZZZZ_SX200_.jpg" alt="MSI Prestige 16 AI Studio - Portátil 16&quot; QHD+ (Intel Core Ultra 9, 16GB, 1TB SSD)" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Crect width='110' height='110' fill='%23f0f0f0'/%3E%3Ctext x='55' y='60' text-anchor='middle' fill='%23ccc' font-size='13'%3EImagen%3C/text%3E%3C/svg%3E'">
+        <img src="https://m.media-amazon.com/images/P/B0D53ND8K8.01._SCLZZZZZZZ_SX200_.jpg" alt="MSI Prestige 16 AI Studio - Portátil 16&quot; QHD+ (Intel Core Ultra 9, 16GB, 1TB SSD)" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='110'%3E%3Crect width='120' height='110' rx='8' fill='%23f0f0f0'/%3E%3Ctext x='60' y='58' text-anchor='middle' fill='%23bbb' font-family='sans-serif' font-size='12'%3ESin imagen%3C/text%3E%3C/svg%3E'">
       </a>
       <div class="deal-content">
-        <div class="deal-top">
+        <div class="deal-title">MSI Prestige 16 AI Studio - Portátil 16&quot; QHD+ (Intel Core Ultra 9, 16GB, 1TB SSD)</div>
+        <div class="deal-row">
           <span class="deal-badge">-41%</span>
-          <span class="deal-title">MSI Prestige 16 AI Studio - Portátil 16&quot; QHD+ (Intel Core Ultra 9, 16GB, 1TB SSD)</span>
-        </div>
-        <div class="deal-bottom">
           <span class="deal-price">1.115,50€</span>
           <span class="deal-before">1.892€</span>
           <a class="deal-btn" href="https://www.amazon.es/dp/B0D53ND8K8?tag=ofertastope08-21" target="_blank" rel="noopener">Ver oferta</a>
@@ -223,14 +226,12 @@
     </article>
     <article class="deal">
       <a class="deal-img" href="https://www.amazon.es/dp/B0DFHW2JTT?tag=ofertastope08-21" target="_blank" rel="noopener">
-        <img src="https://m.media-amazon.com/images/P/B0DFHW2JTT.01._SCLZZZZZZZ_SX200_.jpg" alt="XIAOMI Robot Vacuum X20 MAX - Robot Aspirador y Fregasuelos" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Crect width='110' height='110' fill='%23f0f0f0'/%3E%3Ctext x='55' y='60' text-anchor='middle' fill='%23ccc' font-size='13'%3EImagen%3C/text%3E%3C/svg%3E'">
+        <img src="https://m.media-amazon.com/images/P/B0DFHW2JTT.01._SCLZZZZZZZ_SX200_.jpg" alt="XIAOMI Robot Vacuum X20 MAX - Robot Aspirador y Fregasuelos" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='110'%3E%3Crect width='120' height='110' rx='8' fill='%23f0f0f0'/%3E%3Ctext x='60' y='58' text-anchor='middle' fill='%23bbb' font-family='sans-serif' font-size='12'%3ESin imagen%3C/text%3E%3C/svg%3E'">
       </a>
       <div class="deal-content">
-        <div class="deal-top">
+        <div class="deal-title">XIAOMI Robot Vacuum X20 MAX - Robot Aspirador y Fregasuelos</div>
+        <div class="deal-row">
           <span class="deal-badge">-35%</span>
-          <span class="deal-title">XIAOMI Robot Vacuum X20 MAX - Robot Aspirador y Fregasuelos</span>
-        </div>
-        <div class="deal-bottom">
           <span class="deal-price">313€</span>
           <span class="deal-before">481€</span>
           <a class="deal-btn" href="https://www.amazon.es/dp/B0DFHW2JTT?tag=ofertastope08-21" target="_blank" rel="noopener">Ver oferta</a>
@@ -239,14 +240,12 @@
     </article>
     <article class="deal">
       <a class="deal-img" href="https://www.amazon.es/dp/B0FCFZ7F2Q?tag=ofertastope08-21" target="_blank" rel="noopener">
-        <img src="https://m.media-amazon.com/images/P/B0FCFZ7F2Q.01._SCLZZZZZZZ_SX200_.jpg" alt="Sonic Racing CrossWorlds - PS5" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Crect width='110' height='110' fill='%23f0f0f0'/%3E%3Ctext x='55' y='60' text-anchor='middle' fill='%23ccc' font-size='13'%3EImagen%3C/text%3E%3C/svg%3E'">
+        <img src="https://m.media-amazon.com/images/P/B0FCFZ7F2Q.01._SCLZZZZZZZ_SX200_.jpg" alt="Sonic Racing CrossWorlds - PS5" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='110'%3E%3Crect width='120' height='110' rx='8' fill='%23f0f0f0'/%3E%3Ctext x='60' y='58' text-anchor='middle' fill='%23bbb' font-family='sans-serif' font-size='12'%3ESin imagen%3C/text%3E%3C/svg%3E'">
       </a>
       <div class="deal-content">
-        <div class="deal-top">
+        <div class="deal-title">Sonic Racing CrossWorlds - PS5</div>
+        <div class="deal-row">
           <span class="deal-badge">-32%</span>
-          <span class="deal-title">Sonic Racing CrossWorlds - PS5</span>
-        </div>
-        <div class="deal-bottom">
           <span class="deal-price">30,99€</span>
           <span class="deal-before">46€</span>
           <a class="deal-btn" href="https://www.amazon.es/dp/B0FCFZ7F2Q?tag=ofertastope08-21" target="_blank" rel="noopener">Ver oferta</a>
@@ -255,14 +254,12 @@
     </article>
     <article class="deal">
       <a class="deal-img" href="https://www.amazon.es/dp/B091FPMK5T?tag=ofertastope08-21" target="_blank" rel="noopener">
-        <img src="https://m.media-amazon.com/images/P/B091FPMK5T.01._SCLZZZZZZZ_SX200_.jpg" alt="GIMI Carro de la Compra Komodo - Plegable 168L" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Crect width='110' height='110' fill='%23f0f0f0'/%3E%3Ctext x='55' y='60' text-anchor='middle' fill='%23ccc' font-size='13'%3EImagen%3C/text%3E%3C/svg%3E'">
+        <img src="https://m.media-amazon.com/images/P/B091FPMK5T.01._SCLZZZZZZZ_SX200_.jpg" alt="GIMI Carro de la Compra Komodo - Plegable 168L" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='110'%3E%3Crect width='120' height='110' rx='8' fill='%23f0f0f0'/%3E%3Ctext x='60' y='58' text-anchor='middle' fill='%23bbb' font-family='sans-serif' font-size='12'%3ESin imagen%3C/text%3E%3C/svg%3E'">
       </a>
       <div class="deal-content">
-        <div class="deal-top">
+        <div class="deal-title">GIMI Carro de la Compra Komodo - Plegable 168L</div>
+        <div class="deal-row">
           <span class="deal-badge">-29%</span>
-          <span class="deal-title">GIMI Carro de la Compra Komodo - Plegable 168L</span>
-        </div>
-        <div class="deal-bottom">
           <span class="deal-price">34,50€</span>
           <span class="deal-before">49€</span>
           <a class="deal-btn" href="https://www.amazon.es/dp/B091FPMK5T?tag=ofertastope08-21" target="_blank" rel="noopener">Ver oferta</a>
@@ -271,14 +268,12 @@
     </article>
     <article class="deal">
       <a class="deal-img" href="https://www.amazon.es/dp/B09SZPQTZ2?tag=ofertastope08-21" target="_blank" rel="noopener">
-        <img src="https://m.media-amazon.com/images/P/B09SZPQTZ2.01._SCLZZZZZZZ_SX200_.jpg" alt="Bosch MFQ49300 - Batidora de Mano 850W" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Crect width='110' height='110' fill='%23f0f0f0'/%3E%3Ctext x='55' y='60' text-anchor='middle' fill='%23ccc' font-size='13'%3EImagen%3C/text%3E%3C/svg%3E'">
+        <img src="https://m.media-amazon.com/images/P/B09SZPQTZ2.01._SCLZZZZZZZ_SX200_.jpg" alt="Bosch MFQ49300 - Batidora de Mano 850W" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='110'%3E%3Crect width='120' height='110' rx='8' fill='%23f0f0f0'/%3E%3Ctext x='60' y='58' text-anchor='middle' fill='%23bbb' font-family='sans-serif' font-size='12'%3ESin imagen%3C/text%3E%3C/svg%3E'">
       </a>
       <div class="deal-content">
-        <div class="deal-top">
+        <div class="deal-title">Bosch MFQ49300 - Batidora de Mano 850W</div>
+        <div class="deal-row">
           <span class="deal-badge">-27%</span>
-          <span class="deal-title">Bosch MFQ49300 - Batidora de Mano 850W</span>
-        </div>
-        <div class="deal-bottom">
           <span class="deal-price">44,99€</span>
           <span class="deal-before">62€</span>
           <a class="deal-btn" href="https://www.amazon.es/dp/B09SZPQTZ2?tag=ofertastope08-21" target="_blank" rel="noopener">Ver oferta</a>
@@ -287,14 +282,12 @@
     </article>
     <article class="deal">
       <a class="deal-img" href="https://www.amazon.es/dp/B0DP3DHCNK?tag=ofertastope08-21" target="_blank" rel="noopener">
-        <img src="https://m.media-amazon.com/images/P/B0DP3DHCNK.01._SCLZZZZZZZ_SX200_.jpg" alt="LS2 Casco Moto Modular ADVANT II TRIPLE" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Crect width='110' height='110' fill='%23f0f0f0'/%3E%3Ctext x='55' y='60' text-anchor='middle' fill='%23ccc' font-size='13'%3EImagen%3C/text%3E%3C/svg%3E'">
+        <img src="https://m.media-amazon.com/images/P/B0DP3DHCNK.01._SCLZZZZZZZ_SX200_.jpg" alt="LS2 Casco Moto Modular ADVANT II TRIPLE" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='110'%3E%3Crect width='120' height='110' rx='8' fill='%23f0f0f0'/%3E%3Ctext x='60' y='58' text-anchor='middle' fill='%23bbb' font-family='sans-serif' font-size='12'%3ESin imagen%3C/text%3E%3C/svg%3E'">
       </a>
       <div class="deal-content">
-        <div class="deal-top">
+        <div class="deal-title">LS2 Casco Moto Modular ADVANT II TRIPLE</div>
+        <div class="deal-row">
           <span class="deal-badge">-25%</span>
-          <span class="deal-title">LS2 Casco Moto Modular ADVANT II TRIPLE</span>
-        </div>
-        <div class="deal-bottom">
           <span class="deal-price">231,56€</span>
           <span class="deal-before">309€</span>
           <a class="deal-btn" href="https://www.amazon.es/dp/B0DP3DHCNK?tag=ofertastope08-21" target="_blank" rel="noopener">Ver oferta</a>
@@ -303,14 +296,12 @@
     </article>
     <article class="deal">
       <a class="deal-img" href="https://www.amazon.es/dp/B0BWM4GVPY?tag=ofertastope08-21" target="_blank" rel="noopener">
-        <img src="https://m.media-amazon.com/images/P/B0BWM4GVPY.01._SCLZZZZZZZ_SX200_.jpg" alt="Bialetti New Brikka 2023 - Cafetera Moka Espresso Cremoso (2 tazas)" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Crect width='110' height='110' fill='%23f0f0f0'/%3E%3Ctext x='55' y='60' text-anchor='middle' fill='%23ccc' font-size='13'%3EImagen%3C/text%3E%3C/svg%3E'">
+        <img src="https://m.media-amazon.com/images/P/B0BWM4GVPY.01._SCLZZZZZZZ_SX200_.jpg" alt="Bialetti New Brikka 2023 - Cafetera Moka Espresso Cremoso (2 tazas)" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='110'%3E%3Crect width='120' height='110' rx='8' fill='%23f0f0f0'/%3E%3Ctext x='60' y='58' text-anchor='middle' fill='%23bbb' font-family='sans-serif' font-size='12'%3ESin imagen%3C/text%3E%3C/svg%3E'">
       </a>
       <div class="deal-content">
-        <div class="deal-top">
+        <div class="deal-title">Bialetti New Brikka 2023 - Cafetera Moka Espresso Cremoso (2 tazas)</div>
+        <div class="deal-row">
           <span class="deal-badge">-23%</span>
-          <span class="deal-title">Bialetti New Brikka 2023 - Cafetera Moka Espresso Cremoso (2 tazas)</span>
-        </div>
-        <div class="deal-bottom">
           <span class="deal-price">27€</span>
           <span class="deal-before">35€</span>
           <a class="deal-btn" href="https://www.amazon.es/dp/B0BWM4GVPY?tag=ofertastope08-21" target="_blank" rel="noopener">Ver oferta</a>
@@ -319,14 +310,12 @@
     </article>
     <article class="deal">
       <a class="deal-img" href="https://www.amazon.es/dp/B0CNS41YS5?tag=ofertastope08-21" target="_blank" rel="noopener">
-        <img src="https://m.media-amazon.com/images/P/B0CNS41YS5.01._SCLZZZZZZZ_SX200_.jpg" alt="The Dreamers - Blu-ray (Edición Especial)" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Crect width='110' height='110' fill='%23f0f0f0'/%3E%3Ctext x='55' y='60' text-anchor='middle' fill='%23ccc' font-size='13'%3EImagen%3C/text%3E%3C/svg%3E'">
+        <img src="https://m.media-amazon.com/images/P/B0CNS41YS5.01._SCLZZZZZZZ_SX200_.jpg" alt="The Dreamers - Blu-ray (Edición Especial)" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='110'%3E%3Crect width='120' height='110' rx='8' fill='%23f0f0f0'/%3E%3Ctext x='60' y='58' text-anchor='middle' fill='%23bbb' font-family='sans-serif' font-size='12'%3ESin imagen%3C/text%3E%3C/svg%3E'">
       </a>
       <div class="deal-content">
-        <div class="deal-top">
+        <div class="deal-title">The Dreamers - Blu-ray (Edición Especial)</div>
+        <div class="deal-row">
           <span class="deal-badge">-23%</span>
-          <span class="deal-title">The Dreamers - Blu-ray (Edición Especial)</span>
-        </div>
-        <div class="deal-bottom">
           <span class="deal-price">22,74€</span>
           <span class="deal-before">30€</span>
           <a class="deal-btn" href="https://www.amazon.es/dp/B0CNS41YS5?tag=ofertastope08-21" target="_blank" rel="noopener">Ver oferta</a>
@@ -335,14 +324,12 @@
     </article>
     <article class="deal">
       <a class="deal-img" href="https://www.amazon.es/dp/B07PQ7TXZD?tag=ofertastope08-21" target="_blank" rel="noopener">
-        <img src="https://m.media-amazon.com/images/P/B07PQ7TXZD.01._SCLZZZZZZZ_SX200_.jpg" alt="Pikolin Home Pack 2 Almohadas Viscoelásticas Aloe Vera" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Crect width='110' height='110' fill='%23f0f0f0'/%3E%3Ctext x='55' y='60' text-anchor='middle' fill='%23ccc' font-size='13'%3EImagen%3C/text%3E%3C/svg%3E'">
+        <img src="https://m.media-amazon.com/images/P/B07PQ7TXZD.01._SCLZZZZZZZ_SX200_.jpg" alt="Pikolin Home Pack 2 Almohadas Viscoelásticas Aloe Vera" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='110'%3E%3Crect width='120' height='110' rx='8' fill='%23f0f0f0'/%3E%3Ctext x='60' y='58' text-anchor='middle' fill='%23bbb' font-family='sans-serif' font-size='12'%3ESin imagen%3C/text%3E%3C/svg%3E'">
       </a>
       <div class="deal-content">
-        <div class="deal-top">
+        <div class="deal-title">Pikolin Home Pack 2 Almohadas Viscoelásticas Aloe Vera</div>
+        <div class="deal-row">
           <span class="deal-badge">-21%</span>
-          <span class="deal-title">Pikolin Home Pack 2 Almohadas Viscoelásticas Aloe Vera</span>
-        </div>
-        <div class="deal-bottom">
           <span class="deal-price">50,49€</span>
           <span class="deal-before">64€</span>
           <a class="deal-btn" href="https://www.amazon.es/dp/B07PQ7TXZD?tag=ofertastope08-21" target="_blank" rel="noopener">Ver oferta</a>
@@ -352,7 +339,7 @@
   </main>
 
   <footer class="footer">
-    <p>Precios verificados con CamelCamelCamel. Actualizado: 21/02/2026 00:32</p>
+    <p>Precios verificados con CamelCamelCamel. Actualizado: 21/02/2026 00:34</p>
     <p>Los enlaces contienen un identificador de afiliado de Amazon.</p>
   </footer>
 
