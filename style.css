@@ -1,0 +1,113 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  line-height: 1.5;
+}
+
+a { color: #e74c3c; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+.header h1 { font-size: 1.8rem; margin-bottom: .3rem; }
+.header p { opacity: .9; font-size: .95rem; }
+
+/* Telegram CTA */
+.telegram-cta {
+  background: #0088cc;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.telegram-cta a {
+  color: #fff;
+  font-weight: 700;
+  border: 2px solid #fff;
+  padding: .4rem 1.2rem;
+  border-radius: 6px;
+  margin-left: .5rem;
+  display: inline-block;
+}
+.telegram-cta a:hover { background: rgba(255,255,255,.15); text-decoration: none; }
+
+/* Main */
+.container { max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem; }
+
+/* Deal cards */
+.deals { display: grid; gap: 1rem; }
+
+.deal {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  padding: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: box-shadow .2s;
+}
+.deal:hover { box-shadow: 0 4px 16px rgba(0,0,0,.13); }
+
+.deal-badge {
+  background: #e74c3c;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  min-width: 64px;
+  text-align: center;
+  padding: .5rem .3rem;
+  flex-shrink: 0;
+}
+
+.deal-info { flex: 1; min-width: 0; }
+.deal-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: .3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.deal-prices { font-size: .95rem; }
+.deal-price { font-weight: 700; color: #27ae60; font-size: 1.15rem; }
+.deal-before { text-decoration: line-through; color: #999; margin-left: .5rem; }
+
+.deal-btn {
+  background: #f39c12;
+  color: #fff;
+  font-weight: 700;
+  padding: .6rem 1.2rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.deal-btn:hover { background: #e67e22; text-decoration: none; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #999;
+  font-size: .85rem;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .deal { flex-wrap: wrap; }
+  .deal-title { white-space: normal; }
+  .deal-btn { width: 100%; text-align: center; }
+  .telegram-cta { font-size: .85rem; }
+}
