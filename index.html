@@ -159,6 +159,64 @@
       margin-right: .3rem;
     }
 
+    /* ── Telegram CTA banner (mid-page) ── */
+    .telegram-cta {
+      background: linear-gradient(135deg, #0088cc 0%, #006699 100%);
+      color: #fff;
+      border-radius: 12px;
+      padding: 1.5rem 1.25rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .telegram-cta h2 {
+      font-size: 1.15rem;
+      margin-bottom: .3rem;
+    }
+    .telegram-cta p {
+      opacity: .85;
+      font-size: .85rem;
+      margin-bottom: .8rem;
+    }
+    .telegram-cta a {
+      display: inline-block;
+      background: #fff;
+      color: #0088cc;
+      font-weight: 700;
+      font-size: .95rem;
+      padding: .6rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .telegram-cta a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,.2);
+    }
+
+    /* ── Floating Telegram button ── */
+    .telegram-float {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 200;
+      background: #0088cc;
+      color: #fff;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0,0,0,.25);
+      text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .telegram-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,.3);
+    }
+    .telegram-float svg { width: 28px; height: 28px; fill: #fff; }
+
     /* ── Footer ── */
     .footer {
       text-align: center;
@@ -261,6 +319,11 @@
         </div>
       </div>
     </article>
+    <div class="telegram-cta">
+      <h2>No te pierdas ninguna oferta</h2>
+      <p>Recibe los mejores chollos en tu movil, al instante</p>
+      <a href="https://t.me/OfertasTopES">Unirse al canal de Telegram</a>
+    </div>
     <article class="deal">
       <a class="deal-img" href="https://www.amazon.es/dp/B0FCFZ7F2Q?tag=ofertastope08-21" target="_blank" rel="noopener">
         <img src="https://m.media-amazon.com/images/P/B0FCFZ7F2Q.01._SCLZZZZZZZ_SX200_.jpg" alt="Sonic Racing CrossWorlds - PS5" loading="lazy">
@@ -390,9 +453,13 @@
   </main>
 
   <footer class="footer">
-    <p>Precios verificados con CamelCamelCamel. Actualizado: 21/02/2026 05:23</p>
+    <p>Precios verificados con CamelCamelCamel. Actualizado: 21/02/2026 18:32</p>
     <p>Algunos enlaces contienen un identificador de afiliado.</p>
   </footer>
+
+  <a class="telegram-float" href="https://t.me/OfertasTopES" target="_blank" rel="noopener" aria-label="Unirse a Telegram">
+    <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.492-1.302.48-.428-.012-1.252-.242-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+  </a>
 
   <script>
     // Replace 1x1 Amazon placeholder GIFs with a CSS fallback
